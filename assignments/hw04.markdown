@@ -1,0 +1,541 @@
+---
+layout: homework
+title: "Assignment #4"
+---
+# Assignment #4 - Due Tuesday, Feb 23rd at 11PM
+
+* [Readings](#readings)
+* [Pyramid](#part2)
+* [Credit Card](#part3)
+* [Array Utilities](#part4)
+
+<a name="readings"></a>
+
+## Part 1 - Readings
+
+Read __Chapter #5__, __Chapter #6__ and __Chapter #7__ in your book, _{{site.book}}_ (covers nested loops, methods, and Arrays). 
+
+
+<a name="part2"></a>
+
+## (15 points) Part 2 - Pyramid
+
+<pre><code data-trim contenteditable>               '
+              /=\\
+             /===\ \
+            /=====\' \
+           /=======\'' \
+          /=========\ ' '\
+         /===========\''   \
+        /=============\ ' '  \
+       /===============\   ''  \
+      /=================\' ' ' ' \
+     /===================\' ' '  ' \
+    /=====================\' '   ' ' \
+   /=======================\  '   ' /
+  /=========================\   ' /
+ /===========================\'  /
+/=============================\/
+</code></pre>
+
+### Pyramid of Numbers
+
+#### Overview
+
+Write a program that creates a pyramid of numbers.
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>Pyramid.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+* Ask the user for a number
+	* Expect the input to be a positive integer
+	* (You do not have to account for any input)
+* Generate a pyramid made of numbers based on user input ... 
+	* Mimic the pyramid in the example output below
+	* Ensure that the spacing between each number is consistent
+	
+#### Example Output
+
+__(User Enters 3.)__
+
+<pre><code data-trim contenteditable>Enter the height of your pyramid △
+>3
+      1     
+    2 1 2   
+  3 2 1 2 3 
+
+</code></pre>
+
+__(User Enters 12.)__
+
+<pre><code data-trim contenteditable>Enter the height of your pyramid △
+>12
+                            1                          
+                          2 1 2                        
+                        3 2 1 2 3                      
+                      4 3 2 1 2 3 4                    
+                    5 4 3 2 1 2 3 4 5                  
+                  6 5 4 3 2 1 2 3 4 5 6                
+                7 6 5 4 3 2 1 2 3 4 5 6 7              
+              8 7 6 5 4 3 2 1 2 3 4 5 6 7 8            
+            9 8 7 6 5 4 3 2 1 2 3 4 5 6 7 8 9          
+         10 9 8 7 6 5 4 3 2 1 2 3 4 5 6 7 8 9 10       
+      11 10 9 8 7 6 5 4 3 2 1 2 3 4 5 6 7 8 9 10 11    
+   12 11 10 9 8 7 6 5 4 3 2 1 2 3 4 5 6 7 8 9 10 11 12 
+</code></pre>
+
+<a name="part3"></a>
+
+## (20 points) Part 3 - Credit Card
+
+<pre><code data-trim contenteditable>                              ___
+                            _|\  \__      
+ _____________________      |\   ____\     
+|   __                |     \ \  \___|_    
+|  |__|               |      \ \_____  \   
+|                     |       \|____|\  \  
+| 1234 1234 1234 1234 |         ____\_\  \ 
+|_____________________|        |\___    __\
+                               \|___|\__\_|
+                                    \|__|  
+</code></pre>
+
+### Problem 6.31 in 10th Edition of {{site.book}}: Credit Card Number Validation
+ 
+#### Overview
+
+__Directly from the book, problem 6.31...__
+
+(Financial: credit card number validation) Credit card numbers follow certain patterns. A credit card number must have between 13 and 16 digits. It must start with:
+
+* 4 for Visa cards
+* 5 for Master cards
+* 37 for American Express cards
+* 6 for Discover cards
+
+In 1954, Hans Luhn of IBM proposed an algorithm for validating credit card numbers. The algorithm is useful to determine whether a card number is entered correctly or whether a credit card is scanned correctly by a scanner. Credit card numbers are generated following this validity check, commonly known as the Luhn check or the Mod 10 check, which can be described as follows (for illustration, consider the card number 4388576018402626):
+
+1. Double every second digit from right to left. If doubling of a digit results in a two-digit number, add up the two digits to get a single-digit number. (See figure below)
+2. Now add all single-digit numbers from Step 1.  <code>4 + 4 + 8 + 2 + 3 + 1 + 7 + 8 = 37</code>
+3. Add all digits in the odd places from right to left in the card number. <code>6 + 6 + 0 + 8 + 0 + 7 + 8 + 3 = 38</code>
+4. Sum the results from Step 2 and Step 3.  <code>37 + 38 = 75</code>
+5. If the result from Step 4 is divisible by 10, the card number is valid; otherwise, it is invalid. For example, the number 4388576018402626 is invalid, but the number 4388576018410707 is valid.
+
+![luhn](../resources/img/luhn.png)
+
+Write a program that prompts the user to enter a credit card number as a long integer. Display whether the number is valid or invalid. Design your program to use the following methods:
+
+<pre><code data-trim contenteditable>
+/** Return true if the card number is valid */
+public static boolean isValid(long number) 
+
+/** Get the result from Step 2 */
+public static int sumOfDoubleEvenPlace(long number)
+
+/** Return this number if it is a single digit, otherwise,
+ * return the sum of the two digits */
+public static int getDigit(int number)
+
+/** Return sum of odd-place digits in number */
+public static int sumOfOddPlace(long number)
+
+/** Return true if the digit d is a prefix for number */
+public static boolean prefixMatched(long number, int d) /** Return the number of digits in d */
+public static int getSize(long d)
+
+/** Return the first k number of digits from number. If the
+ * number of digits in number is less than k, return number. */
+public static long getPrefix(long number, int k)
+
+</code></pre>
+<!--* -->
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>CreditCard.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Example Output
+
+Here are sample runs of the program: (You may also implement this program by reading the input as a string and processing the string to validate the credit card.)
+
+<pre><code data-trim contenteditable>Enter a credit card number as a long integer:
+> 4388576018410707
+4388576018410707 is valid
+</code></pre>
+
+<pre><code data-trim contenteditable>Enter a credit card number as a long integer:
+> 4388576018402626
+4388576018402626 is invalid
+</code></pre>
+
+<a name="part4"></a>
+
+## (35 points) Part 4 - Array Utilities
+
+<pre><code data-trim contenteditable>+---+---+---+---+---+---+---+---+
+|22 |27 |89 |90 |91 |62 |61 |50 |
++---+---+---+---+---+---+---+---+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
++---+---+---+---+---+---+---+---+
+</code></pre>
+
+### Array Utility Methods
+
+#### Overview
+
+Write the Array utility methods specified below. They include simulating Python's range function, Array concatenation, etc.
+
+Note that __if there is an equivalent built-in method in Java__, you cannot use it. For example, there is a <code>toString</code> method in <code>java.utils.Arrays</code>. You cannot use that method when implementing your own version of <code>toString</code>!
+
+* (5 points)<code>toString(int[] arr)</code>
+* (1 point) <code>prettyPrint(int[] arr)</code>
+* (6 points) <code>randomInts(int size, int minVal, int maxVal)</code>
+* (7 points) <code>range(int start, int stop, int step)</code>
+* (1 point) <code>range(int start, int stop)</code>
+* (1 point) <code>range(int stop)</code>
+* (5 points) <code>concat(int[] arr1, int[] arr2)</code>
+* (5 points) <code>subArray(int[] arr, int index)</code>
+* (4 points) <code>average(int[] arr)</code>
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>ArrayUtils.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+#### Features
+
+Use the method headers and documentation below for your implementation. Test your implementation using the test cases at the end (you can drop these test cases in main).
+
+<pre><code data-trim contenteditable>
+/** 
+ * Gives back a String representation of an Array
+ * 
+ * @param arr - the array to be converted to a String
+ * @return - a String version of the Array as specified below
+ * 
+ * an empty array should be "[]"
+ * an Array with a single element looks like "[1]"
+ * an Array with multiple elements, should separated by commas and spaces "[1, 2]"
+ * (this mimics java.util.Arrays.toString!)
+ */
+public static String toString(int[] arr)
+
+/**
+ * Prints a formatted version of an Array
+ *
+ * @param arr - the array to be printed
+ * @return - does not return a value
+ * 
+ * ...does not return anything
+ * should rely on your toString method
+ * (this one is really short!)
+ */
+public static void prettyPrint(int[] arr)
+	
+/**
+ * Creates an Array of ints with random values
+ * 
+ * @param size - the size of the Array
+ * @param minVal - the minimum possible random value
+ * @param maxVal - the maximum possible random value
+ * @return - an Array of ints
+ * 
+ * if the size of the Array is 0 or less, give back an empty Array... []
+ * if max is less than min... (that is, the range of possible values is 0 or less! 
+ * ... just default to all 0's 
+ * a range of random values can include negative numbers 
+ * the formula (if sticking with Math.random()) is:
+ *
+ * min + (int) (random double * (range of values + 1))
+ * minVal + (int) (Math.random() * (range + 1));
+ */
+public static int[] randomInts(int size, int minVal, int maxVal)
+
+/**
+ * Creates an Array of numbers based on arithmetic sequence
+ * 
+ * @param start - the number to start with
+ * @param stop - the number the range goes up to (but does not include!)
+ * @param step - the increment/decrement to get from start to stop
+ * @return - an Array of ints
+ * 
+ * Similar to Python's range...
+ * range(1, 10, 1); // start at 1, go up to 9 by 1's -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * range(-10, 11, 1); // start at -10, go up to 10 by 1's -> [-10, -9, ... 10]
+ * range(-10, -4, 1); // start at -10, go up to -5 by 1's -> [-10, -9, -8, -7, -6, -5]
+ * range(12, -1, -3); // start at 12, go down to 0 by 3's -> [12, 9, 6, 3, 0]
+ * range(1, 10, 0); // 0 step should return empty -> []
+ * range(1, 10, -1); // negative step when stop is greater than start should return empty -> []
+ */
+public static int[] range(int start, int stop, int step) 
+
+/**
+ * Two argument version has default step of 1
+ * (just reuse a previously defined method to implement this... should be one line!)
+ */
+public static int[] range(int start, int stop) 
+
+/**
+ * One argument version of range has default step of 1 and a default start of 0
+ * (just reuse a previously defined method to implement this... should be one line!)
+ */
+public static int[] range(int stop) 
+
+/**
+ * Creates a new Array by joining two existing Arrays
+ * 
+ * @param arr1 - first Array to be joined 
+ * @param arr2 - second Array to be joined
+ * @return - a new Array with arr1 at the beginning and arr2 at the end
+ *
+ * joins two arrays to produce a new Array
+ * [1, 2] + [3, 4] -> [1, 2, 3, 4]
+ * [] + [1] -> [1]
+ * [] + [] -> []
+ */
+public static int[] concat(int[] arr1, int[] arr2)
+
+
+/**
+ * Creates a new Array from a consecutive sequence of elements of another Array
+ * 
+ * @param arr - source Array
+ * @param index - start index
+ * @return - a new Array 
+ *
+ * behaves like the 1 argument version of substring...
+ * creates a new Array starting at supplied index... up to the end of of the source Array
+ *
+ * an index that doesn't exist in the new Array should give back an empty Array
+ * [1, 2, 3, 4] with start index of 2 -> [3, 4]
+ * [1, 2, 3, 4] with start index of 8 -> []
+ */
+public static int[] subArray(int[] arr, int index)
+
+/**
+ * Calculates average of all elements in an int Array 
+ *
+ * @param arr - the Array to calculate the average of
+ * @return - average of all elements in Array
+ */
+public static double average(int[] arr) {
+</code></pre>
+		
+__Place the following code in your main... to test your methods.__ &rarr;
+
+<pre><code data-trim contenteditable>
+int[] noNumbers = {};
+int[] oneNumber = {5};
+int[] evenNumbers = {2, 4, 6, 8, 10};
+
+System.out.println("Test prettyPrint");
+prettyPrint(noNumbers); // empty array should print out []
+prettyPrint(oneNumber); // one element should print out [5]
+prettyPrint(evenNumbers); // multiple elements should print out [2, 4, 6, 8, 10]
+
+System.out.println("Test randomInt");
+prettyPrint(randomInts(5, 1, 100)); // should return 5 random numbers from 1 to 100 -> [88, .. 4]
+prettyPrint(randomInts(-1, 1, 100)); // negative size should return empty -> []
+prettyPrint(randomInts(0, 1, 100)); // zero size should return empty -> []
+prettyPrint(randomInts(5, 100, 100)); // same min max should return all the same number -> [100, ... 100]
+prettyPrint(randomInts(5, 100, 1)); // max lower than min should return all 0's -> [0, ... 0]
+prettyPrint(randomInts(20, -5, 5)); // include negative numbers should return mix of numbers in range -> [3, 1, -5 ... 2]
+
+System.out.println("Test range");
+prettyPrint(range(1, 10, 1)); // start at 1, go up to 9 by 1's -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+prettyPrint(range(-10, 11, 1)); // start at -10, go up to 10 by 1's -> [-10, -9, ... 10]
+prettyPrint(range(-10, -4, 1)); // start at -10, go up to -5 by 1's -> [-10, -9, -8, -7, -6, -5]
+prettyPrint(range(12, -1, -3)); // start at 12, go down to 0 by 3's -> [12, 9, 6, 3, 0]
+prettyPrint(range(1, 10, 0)); // 0 step should return empty -> []
+prettyPrint(range(1, 10, -1)); // negative step when stop is greater than start should return empty -> []
+
+prettyPrint(range(5)); // one argument version defaults to start at 0 and step of 1 -> [0, 1, 2, 3, 4]
+prettyPrint(range(5, 10)); // two argument version defaults to step of 1 -> [5, 6, 7, 8, 9]
+
+System.out.println("Test concat");
+prettyPrint(concat(noNumbers, noNumbers)); // adding two empty -> []
+prettyPrint(concat(noNumbers, oneNumber)); // adding one element to empty -> [5]
+prettyPrint(concat(oneNumber, evenNumbers)); // -> [5, 2, 4, 6, 8, 10]
+prettyPrint(concat(evenNumbers, evenNumbers)); // -> [2, 4, 6, 8, 10, 2, 4, 6, 8, 10]
+
+System.out.println("Test subArray");
+prettyPrint(subArray(evenNumbers, 0)); // start from beginning gives back entire Array -> [2, 4, 6, 8, 10]
+prettyPrint(subArray(evenNumbers, 2)); // -> [6, 8, 10]
+prettyPrint(subArray(evenNumbers, 8)); // start from index beyond length gives back empty -> []
+prettyPrint(subArray(oneNumber, 0)); // single element from 0 gives back one element Array -> [5]
+prettyPrint(subArray(noNumbers, 1)); // empty returns empty -> []
+
+System.out.println("Test average");
+System.out.println(average(noNumbers)); // no numbers... average is 0 -> 0
+System.out.println(average(evenNumbers)); // -> 6.0
+System.out.println(average(oneNumber)); // -> 5.0
+</code></pre>
+# Submission Process
+
+* Submit assignment via NYU Classes
+* Submit each <code>.java</code> file as a separate attachment
+	* only submit .java files (do not submit .class files or any other files that are created in Eclipse)
+	* you can find your .java files in the directory that you specified as your workspace... and within the project folder contained in the workspace directory
+
+
+# Grading Criteria
+
+* no credit: file does not compile
+* -2 points: files and classes are not named according to instructions
+* -2 points: inconsistent style using curly braces, inconsistent use of spaces and indentation, lack of comments
+* see individual projects for points per feature
+
+
+{% comment %}
+###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+
+## (25 points) Part 2 - Pig
+
+<pre><code data-trim contenteditable>                                                         ___
+                                        ,---.        /""`_,'
+                                        |    `\``""-;   /
+                                        \   /`\\     ';'
+                                      .')   |     __   \
+                                     / (`  /     /(O\. _|
+                                  .-`|  `"`      `    .-\_
+                               .-'   \                  ` ;=-.
+                             .'        .           ._,   / o o\
+                         .-'`            .           '-._;_._.J
+                     .-'`                               `.-'` 
+                 _.-`                       '          .'
+               .'                              '- ._.-'
+             /`                                    /
+            /                                     |
+      ._   ;                                 |    |
+       )).-|                     |           |    /
+      (/`.-|                \    \           /  .;
+      ( (_)|                 |    \         ; .' |
+       '--';                 |    `\       / /   |
+            \                |      `\    /.'   /
+             \               /        ;  |`\   |
+              '.           .'      _.-|  |  |  |
+                '-.     .-';_"---'`.__|  |  |  \
+                   `'-._     ``'-. jgs|  \  \__\\
+                        `''--.___\\   \__\\
+</code></pre>
+
+### Pig Dice Game
+
+#### Overview
+
+Pig is a dice game where:
+
+* each turn, a player repeatedly rolls a die until they roll a 1 or choose to "hold"
+	* if a 1 is rolled, the player scores nothing for that turn and the next player goes...
+	* if the player rolls any other number, that numbers is added to their turn total and the player's turn continues
+	* if the player chooses to "hold" their turn total is added to their score, and it becomes the next player's turn
+* the player that reaches 100 or more points first wins
+
+[Read the wikipedia article on it!](http://en.wikipedia.org/wiki/Pig_%28dice_game%29)
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>Pig.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+* there are two players, the user and the computer
+* the game continues until either player scores 100
+* the game proceeds with the user taking their turn first, followed by the computer
+* the score for both players is displayed after both take their turns
+* during a turn, a player can (note that the computer player will automatically choose):
+	* (r)oll to continue rolling
+		* this rolls a six sided die, with the roll displayed
+		* if the roll is not 1 
+			* the roll is added to their turn total
+			* the current turn total is displayed if the player is the user (not the computer)
+		* if the roll is 1, then their turn total is 0, and their turn ends
+	* (h)old to end their turn
+		* the player's turn ends
+	* (q)uit to quit (user only)
+		* the game ends immediately
+* add the end of each player's turn
+	* the player's new turn total should be added to their score
+	* the player's roll total should be displayed
+	* the player's new score should be displayed
+* create at least one method in your program
+	* the method should determine the computer's action (roll or hold) 
+	* the action should be based on the computer's current turn total and the opponent's score (these should be parameters in your method)
+	* if the computer's turn total is 20, hold (why risk losing 20 points!)
+	* however... if the other player is close to winning - within 10, go for broke! ... roll even if you have more than 20 points for the turn)
+
+
+
+#### Example Output:
+
+__First 4 turns:__
+
+1. player scores 11 and holds
+2. computer scores 0 (rolls a 1 on third roll)
+3. player scores 3
+4. computer scores 23
+
+<pre><code data-trim contenteditable>Shuffling the deck!
+Player: 0 Computer: 0
+=====
+Your turn.
+Your current turn total is 0
+(r)oll, (h)old or (q)uit?
+> r
+You rolled a 6
+Your current turn total is 6
+(r)oll, (h)old or (q)uit?
+> r
+You rolled a 5
+Your current turn total is 11
+(r)oll, (h)old or (q)uit?
+> h
+Adding your turn total, 11, to your score...
+Your score is now 11
+Computer's Turn
+Computer rolled 5
+Computer rolled 4
+Computer rolled 1
+Uh oh! Your computer total is 0, and computer's turn has ended.
+Adding computer's turn total, 0, to score...
+Computer's score is now 0
+
+Player: 11 Computer: 0
+=====
+Your turn.
+Your current turn total is 0
+(r)oll, (h)old or (q)uit?
+> r
+You rolled a 3
+Your current turn total is 3
+(r)oll, (h)old or (q)uit?
+> h
+Adding your turn total, 3, to your score...
+Your score is now 14
+Computer's Turn
+Computer rolled 2
+Computer rolled 5
+Computer rolled 2
+Computer rolled 5
+Computer rolled 3
+Computer rolled 6
+Adding computer's turn total, 23, to score...
+Computer's score is now 23
+
+Player: 14 Computer: 23
+=====
+Your turn.
+Your current turn total is 0
+(r)oll, (h)old or (q)uit?
+
+</code></pre>
+{% endcomment %}

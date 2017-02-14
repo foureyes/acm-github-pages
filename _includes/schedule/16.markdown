@@ -1,0 +1,28 @@
+	<td markdown="block">
+* next exam reminder
+* [Objects and Classes](slides/16/oop.html)
+</td>
+	<td markdown="block">
+
+* __Chapter 9__ - Objects and Classes
+
+{% comment %}
+* [wallaby](resources/img/wallaby.jpg)
+* [apples](resources/img/apples-small.jpg)
+{% endcomment %}
+</td>
+	<td markdown="block">
+Assignment, Due March 31st
+
+* Read Chapter #9 Classes/Objects 
+* [Homework #7](assignments/hw07.html)
+
+{% comment %}
+Code Samples
+
+* [Circle](resources/code/class16/Circle.java)
+* [CircleTest (uses Circel class above)](resources/code/class16/CircleTest.java)
+* [Student](resources/code/class16/Student.java)
+* [StudentTest (uses Student class above](resources/code/class16/StudentTest.java)
+{% endcomment %}
+</td>

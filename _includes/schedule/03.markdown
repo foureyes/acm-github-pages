@@ -1,0 +1,22 @@
+	<td markdown="block">
+{% comment %}
+* [About Class #3](slides/03/meta.html)
+{% endcomment %}
+* [Selection](slides/03/selection.html)
+* [Math Class](slides/03/math.html)
+
+{% comment %}
+* [Common Errors](slides/03/common-errors.html)
+* [Variables, Constants](slides/03/variables-constants.html)
+* [Input and Output](slides/03/input-output.html)
+* [Software Development Process](slides/03/process.html)
+{% endcomment %}
+</td>
+	<td markdown="block">
+* __Chapter 3__ - Selections
+</td>
+	<td markdown="block">
+Assignment Due Feb 9th
+
+* [Assignment #2](assignments/hw02.html)
+</td>

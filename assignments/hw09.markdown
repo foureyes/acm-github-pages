@@ -1,0 +1,321 @@
+---
+layout: homework
+title: "Assignment #09"
+---
+# Assignment #09 - Due Wednesday, April 27th at 11PM 
+
+From your book, _{{site.book}}_ :
+
+* [Readings](#readings)
+* [Practice](#part2)
+* [Animated Again](#part3)
+
+<a name="readings"></a>
+
+## Part 1 - Readings
+
+From your book, _{{site.book}}_ :
+
+* read __Chapter 11__, Polymorphism
+* discussed in class, but not covered completely in slides
+	* Object
+	* toString, equals
+* topics that we did not go over in class and not in slides
+	* ArrayList (section 11.11)
+	
+
+<a name="part2"></a>
+
+## (10 points) Practice
+
+### Practice
+
+#### Overview
+
+Create 3 classes, <code>PersonTest</code>, <code><code>Person</code> and <code>Student</code> to demonstrate inheritance. 
+
+#### Setup
+
+* Create the following classes (<code>.java</code> files): 
+	* <code>PersonTest</code> 
+	* <code>Person</code>
+	* <code>Student</code>
+
+* These classes should all be in the same project (and package), so that they have access to each other
+
+#### Requirements
+
+__Person__
+
+1. Create a class called <code>Person</code>
+1. Create 4 __private__ member variables (__no member variables should be directly accessible__):
+	* <code>first</code>, a <code>String</code>, unique per instance
+	* <code>middle</code>, a <code>String</code>, unique per instance
+	* <code>last</code>, a <code>String</code>, unique per instance
+	* <code>count</code>, an <code>int</code>, a shared value across all instances (_as in_ __static__)
+1. Create a _no arg_ constructor for person. Within it:
+	* increment <code>count</code>
+	* print out <code>"Creating Person #(count)"</code>, where (count) is the value of the count variable
+1. Create another constructor that has <code>first</code>, <code>middle</code>, and <code>last</code> as <code>String</code> parameters. Within it:
+	* trigger the code to increment the <code>count</code> variable by calling the no arg constructor (<code>this()</code>)
+	* call a method called <code>setName</code> (which we'll write next) with the arguments being <code>first</code>, <code>middle</code>, and <code>last</code>...
+1. Create a method (with default visibility) called <code>setName</code>. It should not return a value. It should have three <code>String</code> parameters: <code>first</code>, <code>middle</code>, and <code>last</code>. Within it:
+	* set all of the member variables based on name
+	* (for example <code>this.first = first;</code>)
+1. Create a <code>public</code> <code>toString</code> method:
+	* the <code>String</code> produced should be: "(first) (middle) (last)"
+	* ...where the names inside parentheses represent the member variable values
+	* (for example: "Lyndon Baines Johnson")
+1. Create getters for all of the member variables (you don't have to create setters, as we will not be using them). Use Eclipse's code generation to do this.
+	* In Eclipse, go to:
+	* Source &rarr; Generate Getters and Setters (check the appropriate boxes for the setters that you want to create)
+
+__Student__
+
+1. Create a class called <code>Student</code>
+1. <code>Student</code> should inherit methods and variables from <code>Person</code> (that is, <code>Student</code> _extends_ <code>Person</code>)
+	* __note that private member variables__ from the superclass can still be used
+	* ...via getters and setters
+1. Create 2 __private__ member variables (__no member variables should be directly accessible__):
+	* <code>netId</code>, a <code>String</code>, unique per instance
+	* <code>major</code>, a <code>String</code>, unique per instance, that has a default value of <code>"Undeclared"</code>
+1. Create a constructor that has <code>first</code>, <code>middle</code>, and <code>last</code> as <code>String</code> parameters. Within it:
+	* call the parent class <code>setName</code> with the appropriate arguments
+	* call a method called <code>generateNetId</code> (which we'll write later)
+	* (note that the parent class constructor will be called automatically in the first line, since we are not explicitly calling it)
+1. Create a <code>private</code> method called <code>generateNetId</code>. It should not return a value and it does not have any parameters. Within it:
+	* construct a string by...
+	* adding the lowercased first letter of the first, middle, and last name together... 
+	* (as long as they're not empty and not null)
+	* ...and adding the count to it
+	* (for example, if the student, <code>"Lyndon Baines Johnson"</code> were the third object created, the net id would be <code>"lbj3"</code>)
+1. Create a <code>public</code> method called <code>setNetId</code>. This will allow generated netId to be overwritten. It should not return a value. It should have a single <code>String</code> parameter, <code>netId</code>. 
+	* set the <code>netId</code> member variable based on the argument passed in 
+	* you can generate this method or manually add it
+1. Create an <code>equals</code> method (that overrides <code>Object's</code> <code>equals</code> method). It should be <code>public</code>. It should return a <code>boolean</code>, and it should have a single argument, <code>Object obj</code>.
+	* the equals method tests if another object is equal to <code>this</code> object
+	* in our implementation, we will assume that if students have the same net id, then they are the same person
+	* within the <code>equals</code> method...
+	* _exlicitly cast_ <code>obj</code> into a <code>Student</code> object: <code>Student other = (Student) obj;</code>
+	* test if <code>other</code>'s <code>NetId</code> is equal to <code>this</code> instance's <code>netId</code>
+	* return the resulting <code>boolean</code>
+1. Lastly, __override__ the parent class <code>toString</code> method:
+	* make sure to add the <code>@Override</code> annotation before your method definition
+	* add the <code>netId</code> and <code>major</code> after the first, middle and last name
+	* (an easy way to do this is to use the super class <code>toString</code> method: <code>super.toString()</code>)
+
+__Person Test__
+
+* create a <code>main</code> method, the entry point to your program
+	* create a new <code>Person</code> object, <code>person</code>: <code>Iam Not Astudent</code>
+	* create a new <code>Student</code> object, <code>alice1</code>: <code>Alice Apple Alvarez</code>
+	* create a new <code>Student</code> object, <code>alice2</code>: <code>Alice Alma Alvarez</code>
+	* print out (variable name) = (string representation of object) for each object above, in the following order: <code>person</code>, <code>alice1</code>, <code>alice2</code>
+	* for example, to print out <code>alice2</code>: <code>System.out.printf("alice2 = %s\n", alice2);</code>
+	* now, test if <code>alice1</code> and <code>alice2</code> are equal (this should be false, since they have different netIds): <code>System.out.printf("alice1 equals alice2? %s\n", alice1.equals(alice2));</code>
+	* change <code>alice2</code>'s <code>netId</code> so that it's the same as <code>alice1</code>'s: <code>"aaa2"</code>
+	* print out both <code>alice1</code> and <code>alice2</code> again
+	* check if they're equal (the result should be <code>true</code>)
+	* lastly, create an <code>Array</code> of <code>People</code> object, composed of the three objects we created: <code>Person[] people = {person, alice1, alice2};</code>
+	* notice that there's no compile error... <code>alice1</code> and <code>alice2</code> are considered instances of <code>Person</code>
+	* try looping through the <code>Array</code> and printing out each object
+
+
+
+#### Example Output
+
+__Your program's output should match the output below__.
+
+<pre><code data-trim contenteditable>
+// the parent class constructor will be called automatically for the last two objects
+Creating Person #1
+Creating Person #2
+Creating Person #3
+person = Iam Not Astudent
+alice1 = Alice Apple Alvarez aaa2 Undeclared
+alice2 = Alice Alma Alvarez aaa3 Undeclared
+alice1 equals alice2? false
+alice1 = Alice Apple Alvarez aaa2 Undeclared
+alice2 = Alice Alma Alvarez aaa2 Undeclared
+alice1 equals alice2? true
+Iam Not Astudent
+Alice Apple Alvarez aaa2 Undeclared
+Alice Alma Alvarez aaa2 Undeclared
+</code></pre>
+
+<a name="part3"></a>
+
+## (30 points) Part 2 - Animated Again
+
+### Animated Again
+
+#### Overview
+
+Create an animation, but this time use objects to represent each animated element. You can choose to do an __original__ animation __or__ you can rewrite your <code>CarAnimation</code> homework so that it uses classes and objects.
+
+#### Setup
+
+* Create at least five classes (<code>.java</code> files): 
+	* <code>MyAnimation</code> - a processing program with your <code>setup</code> and <code>draw</code> methods
+	* __minimally one superclass__ - a class that contains the common member variables and methods that are used in the classes below
+	* __minimally three subclasses__ - classes that represent an animated element in your program
+* These classes should all be in the same project (and package), so that they have access to each other
+
+#### Features
+
+__General Requirements__
+
+* all animated elements of the program must be instances of classes representing that object
+	* for example, a <code>Tree</code> class would be used to create every tree in your animation
+* the animated elements must be drawn within their class, not in <code>MyAnimation</code>
+	* that is, all of the calls to drawing shapes, such as <code>ellipse</code> and <code>rect</code> should be in the class of the element being drawn 
+	* for example <code>Tree</code> should know how to draw itself
+	* ...using a <code>PApplet</code> passed in from its constructor
+	* (see [example code under the Resources/Sample Code section](#resources))
+* additionally, you should able to add objects with key presses (minimally two objects)
+	* use the keys 'm' and 't' to trigger adding additional objects to your animation
+	* for example, in the animation below, key presses add mountains and trees
+	* (see [example code for handling keypresses under the Resources/Sample Code section](#resources))
+	* each object should be drawn in a different random location
+	* use the <code>Random</code> class and <code>nextInt</code>, <code>nextFloat</code> or <code>nextDouble</code> methods
+	* __each newly created object should vary in size__
+	* __each newly created object should vary in color or shade__
+	* __use an <code>ArrayList</code> to store multiple objects__
+	* an <code>ArrayList</code> is a dynamically sized Array that you can add and remove elements from
+* __find all of the common member variables ane methods of your objects__... and create a superclass
+	* place variables and methods in the superclass that all of your subclasses can use (for example, the <code>PApplet</code> variable, <code>_p</code>)
+	* all of your other objects should inherit from this superclass
+* implementation requirements
+	* (see [example code for ArrayLists under the Resources/Sample Code section](#resources))
+	* use <code>super</code> at least once to call a super class constructor
+	* __override__ at least one method... make sure to use the @override annotation!
+
+<a name="resources"></a>
+
+#### Resources / Code Samples
+
+__About Drawing__
+
+<pre><code data-trim contenteditable>
+import processing.core.PApplet;
+
+/**
+ * This program demonstrates an aggregation relationship between
+ * an object being drawn and a PApplet instance. The object being drawn
+ * uses its own PApplet instance to render itself. See the comments
+ * below.
+ */
+public class MyAnimation extends PApplet{
+	Circle c;
+	public void setup() {
+		// pass in *this* PApplet instance to circle so that it can draw
+		// itself!
+		c = new Circle(this);
+	}
+	
+	public void draw() {
+		background(0);
+		c.move();
+		c.render();
+	}
+}
+
+class Circle {
+	int diameter = 30;
+	float y = -diameter / 2;
+	
+	private PApplet _p;
+	
+	Circle(PApplet _p) {
+		this._p = _p;
+	}
+	
+	// the circle knows how to move itself...
+	public void move() {
+		this.y += 1.5;
+		if (this.y > _p.width + diameter / 2) {
+			this.y = -diameter / 2;
+		}
+	}
+	
+	// the circle also knows how to draw itself...
+	// notice that the _p member variable can be used to call all of the
+	// familiar processing methods that we know, such as ellipse, rect, etc.
+    // ... it can even access the width of a sketch
+	public void render() {
+		_p.noStroke();
+		_p.ellipse(_p.width / 2, y, diameter, diameter);
+	}
+}
+</code></pre>
+
+__Detecting Key Presses__
+
+<pre><code data-trim contenteditable>
+import java.util.Random;
+import processing.core.PApplet;
+
+/**
+ * This program will change the location of a circle whenever the key, 'c',
+ * is pressed. See the comments below regarding detecting key presses.
+ */
+public class KeysPlease extends PApplet{
+	Random rng = new Random();
+	int x;
+	
+	public void setup() {
+		x = rng.nextInt(width);
+	}
+
+	public void draw() {
+		background(0);
+		ellipse(x, height / 2, 20, 20);
+	}
+	
+	// Define a keyPressed method that gets called whenever a key is pressed.
+	// You can check for specific keys by looking at the value in the variable,
+	// key.
+	public void keyPressed() {
+		if (key == 'c') {
+			x = rng.nextInt(width);
+		}
+	}
+}
+
+</code></pre>
+
+__Using ArrayLists__
+
+(Please read section 11.11 in {{ site.book }} on <code>ArrayList</code>)
+
+
+<pre><code data-trim contenteditable>
+import java.util.ArrayList;
+
+/**
+ * This program will create a list of cities that dynamically grows by
+ * adding new elements. This uses the ArrayList class.
+ */
+
+public class UsingArrayList {
+	public static void main(String[] args) {
+		// the type that your array list will contain goes in the "angle brackets"
+		ArrayList&lt;String&gt; cities = new ArrayList&lt;String&gt;();
+		cities.add("Albany");
+		cities.add("Ithaca");
+		cities.add("Rochester");
+		for(String city: cities) {
+			System.out.println(city);
+		}
+	}
+}
+
+</code></pre>
+
+#### Example Output
+
+The example below shows mountains and trees being added to the animation as the user presses the keys <code>m</code> and <code>t</code>:
+
+<div markdown="block" class="img">
+![alt](../resources/img/animation3.gif)
+</div>

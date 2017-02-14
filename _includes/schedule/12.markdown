@@ -1,0 +1,41 @@
+	<td markdown="block">
+{% comment %}
+* [About Class #12](slides/12/meta.html)
+{% endcomment %}
+* [Commenting Code / Java Documentation](slides/12/comments.html)
+* [Arrays as References / Processing Arrays in Place](slides/12/arrays-in-place.html)
+
+{%comment%} 
+* [Multi-Dimensional Arrays](slides/12/nested-arrays.html)
+* [Setting Up Processing](slides/12/nested-arrays.html)
+{%endcomment%}
+
+</td>
+	<td markdown="block">
+* __Chapter 8__ - Multidimensional Arrays
+* __Chapter 9__ - Objects and Classes
+</td>
+	<td markdown="block">
+
+Assignment and Quiz Due March 10th
+
+* [Assignment #5](assignments/hw05.html)
+* [Quiz #6](assignments/hw05.html) (based on Chapter 9, Objects and Classes)
+
+{% comment %}
+* Read Chapter #8 on Multi-Dimensional Arrays
+* [Homework #6](assignments/hw06.html)
+{% endcomment %}
+
+{% comment %}
+Code Samples
+
+(of varying quality!)
+
+* [Shift](../resources/code/class12/Shifty.java)
+* [Swap](../resources/code/class12/Swappy.java)
+* [Selection Sort](../resources/code/class12/SelectionSort.java)
+* [Binary Search](../resources/code/class12/BinarySearch.java)
+{% endcomment %}
+
+</td>

@@ -1,0 +1,256 @@
+---
+layout: homework
+title: "Assignment #5"
+---
+# Assignment #5 - Due Thursday, March 10th, at 11PM
+
+* [Readings](#readings)
+* [Timing](#part2)
+* [Max Row](#part3)
+* [Sorting in Two Dimensions!](#part4)
+
+<a name="readings"></a>
+
+## Part 1 - Readings
+
+Read __Chapter #7__, and __Chapter #8__ in your book, _{{site.book}}_ (covers Arrays and Multidimensional Arrays). 
+
+
+<a name="part2"></a>
+
+## (10 points) Part 2 - Timing Binary and Linear Search
+<pre><code data-trim contenteditable>         _____
+      _.'_____`._
+    .'.-'  12 `-.`.
+   /,' 11      1 `.\
+  // 10      /   2 \\
+ ;;         /       ::
+ || 9  ----O      3 ||
+ ::                 ;;
+  \\ 8           4 //
+   \`. 7       5 ,'/
+    '.`-.__6__.-'.'
+     ((-._____.-))
+     _))       ((_
+    '--'SSt    '--'
+</code></pre>
+
+### Problem 7.16 in 10th Edition of {{site.book}}: Execution Time
+ 
+#### Overview
+
+__Directly from the book, problem 7.16...__
+
+(Execution time) Write a program that randomly generates an array of 100,000 integers and a key. Estimate the execution time of invoking the linearSearch method in Listing 7.6. Sort the array and estimate the execution time of invoking the binarySearch method in Listing 7.7. You can use the following code template to obtain the execution time:
+
+<pre><code data-trim contenteditable>long startTime = System.currentTimeMillis(); 
+// perform the task;
+long endTime = System.currentTimeMillis(); 
+long executionTime = endTime - startTime;
+</code></pre>
+
+__Notes and clarificaitons for book's problem statement:__
+
+* read through how the binary search algorithm works (though you can take the code from the book for the purposes of this timing exercise)
+* use the same array and key for both searches
+* the random integers generated should have a range of at least 100,000... 
+* __output the search algorithm's name and time of execution!__
+* writing some convenience / utility methods might be useful (for example, writing your own helpers, like <code>generateNumbers(size, max, min)</code> or <code>randInt(max, min)</code> might make coding this easier)
+
+__Troubleshooting__
+
+* __if you continually get 0ms__, maybe the search is happening too quickly!
+	* use <code>nanoTime</code> to get nanoseconds instead of milliseconds
+	* maybe you want to widen your range of random numbers?
+		* <code>Integer.MAX_VALUE</code> - highest integer
+		* <code>Integer.MIN_VALUE</code> - lowest integer
+* sometimes __binary search performs worse than linear search__!?
+	* if you want to _make sure_ it performs better, try searching for a number that doesn't exist
+	* (why does linear search perform poorly in this case, while binary search does not?)
+	* (why does linear search beat binary search sometimes)
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>Timing.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Example Output
+
+__(Using nano seconds)__
+<pre><code data-trim contenteditable>Linear search: 1289000ns
+Binary search: 5000ns
+</code></pre>
+
+
+<a name="part3"></a>
+
+## (10 points) Part 3 - Max Row
+
+<pre><code data-trim contenteditable>                 +---+---+---+
+                 | 9 | 2 | 7 | --> 18
+                 +---+---+---+
+       MAX ROW   | 8 | 8 | 6 | --> 22
+                 +---+---+---+
+                 | 1 | 3 | 1 | --> 5
+                 +---+---+---+
+</code></pre>
+
+### Find the Row With the Max Sum in a Matrix
+
+#### Overview
+
+Find the sum of every row in a 2 dimensional Array. Determine which row has the max sum. If there is a tie, the row closer to the bottom of the matrix wins.
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>MaxRow.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+* generate a 3 x 3 matrix (that is... a 3-element Array consisting of Arrays with 3 elements), with each value in the matrix being a random number from 0 - 9
+* print it out
+* determine which row has the largest sum
+	* if two rows have the same sum, the row closest to the bottom should be considered the largest
+	* print out both the row number (can simply be index... 0, 1 or 2) and the sum 
+* write at least __two methods with javadoc formatted comments__ to do this
+
+#### Example Output:
+
+__(Prints out sum and index of row with max sum.)__
+<pre><code data-trim contenteditable>4 9 0 
+8 3 8 
+1 0 1 
+Row 1 has the largest sum: 19
+</code></pre>
+
+__(If two rows have same sum, use index of closest to bottom.)__
+<pre><code data-trim contenteditable>6 1 5 
+2 5 0 
+0 4 9 
+Row 2 has the largest sum: 13
+</code></pre>
+
+<a name="part4"></a>
+
+## (15 points) Part 4 - Sorting in Two Dimensions
+
+<pre><code data-trim contenteditable>          +---+---+---+
+          | 0 | 1 | 2 |
+          +---+---+---+
+          | 3 | 5 |
+          +---+---+---+---+---+
+          | 3 | 5 | 4 | 2 | 8 |
+          +---+---+---+---+---+
+          | 9 | 2 |
+          +---+---+
+          | 9 | 3 |
+          +---+---+
+</code></pre>
+
+### Sort an Array of Arrays
+
+#### Overview
+
+Sort a two-dimensional Array of integers. To compare two inner Arrays of integers, use the following algorithm:
+
+1. find the first differing number between both Arrays
+2. use that number for the comparison
+3. if no numbers differ, then the Arrays are equal
+4. if the length of the Arrays differ, and all of the initial numbers are equal, consider the shorter Array as less
+
+Some examples that illustrate the ordering of two Arrays of integers:
+
+{% raw %}
+
+* first differing element is second element of both:
+    <code>{{1, 2}, {1, 3}}</code>
+* first differing element is first element of both:
+    <code>{{0, 5}, {0, 2}}</code>
+* Array lengths differ, but initial elements are the same:
+    <code>{{7, 6}, {7, 6, 5, 4}}</code>
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>Sort2DArrays.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+Implement your program by creating a main method that creates 3 test Arrays:
+
+* unsorted
+    <code>{{7,7},{7,1},{1,2,3},{1,5},{1,2},{3,8},{3,8,1},{5}}</code>
+* already sorted
+    <code>{{1,1},{1,2},{2},{2,4}}</code>
+* single element
+    <code>{{7}}</code>
+
+For every test Array...
+
+* print out the original Array
+* sort it
+* print out the modified Array
+
+
+To sort and print, you'll have to implement the following methods:
+
+<pre><code data-trim contenteditable>
+&nbsp;    /**
+     * Similar to the previous homework on Array Utilities...
+     * 
+     * Converts a two dimension Array of ints into a String
+     * by using the following format:
+     * 
+     * The entire Array is surrounded by curly braces.
+     * Each inner Array is surrounded by curly braces. 
+     * Each inner Array is separated by commas.
+     * Every number in the inner Array is separated by commas.
+     * 
+     * Example:
+     * 
+     * {{1,2},{1,2,3,4},{2},{2,3}}
+     * 
+     * @param arr
+     * @return a String representation of the Array
+     */
+    public static String arrayToString(int[][] arr) 
+
+
+
+    /**
+     * Sorts a 2 dimension Array of int[] Arrays in place
+     * (no return value). Implement a version of selection
+     * sort to do this.
+     * 
+     * @param arr the Array to be sorted
+     */
+    public static void sort(int[][] arr)
+
+
+    /**
+     * Determine of the first Array of ints passed in is
+     * equal to, greater than or less than the second
+     * Array of ints.
+     * 
+     * @param arr1 the first Array of ints in comparison
+     * @param arr2 the second Array of ints in comparison
+     * @return 0 if arr1 and arr2 are equal
+     *         1 if arr1 is greater than arr2
+     *         -1 if arr1 is less than arr2
+     */
+    public static int arrayCompare(int[] arr1, int[] arr2)
+
+</code></pre>
+
+
+#### Example Output
+<pre><code data-trim contenteditable>original: {{7,7},{7,1},{1,2,3},{1,5},{1,2},{3,8},{3,8,1},{5}}
+sorted:   {{1,2},{1,2,3},{1,5},{3,8},{3,8,1},{5},{7,1},{7,7}}
+original: {{1,1},{1,2},{2},{2,4}}
+sorted:   {{1,1},{1,2},{2},{2,4}}
+original: {{7}}
+sorted:   {{7}}
+</code></pre>
+
+{% endraw %}

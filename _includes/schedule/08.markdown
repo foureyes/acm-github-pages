@@ -1,0 +1,24 @@
+	<td markdown="block">
+{% comment %}
+* [Meta](slides/09/meta.html)
+{% endcomment %}
+
+* [Overloading Methods, Type Conversion Revisited, Scope](slides/08/overloading-methods-scope.html)
+* [Arrays](slides/08/arrays.html)
+* [Nested Loops (eventually, right?)](slides/08/nested-loops.html)
+
+{% comment %}
+* [Debugging](slides/09/debugging.html)
+{% endcomment %}
+<a name="midterm1"></a>
+</td>
+	<td markdown="block">
+* __Chapter 7__ - Single-Dimensional Arrays
+
+</td>
+	<td markdown="block">
+ {% comment %}
+* Read Chapter 7 
+* Submit [(Mini) Assignment #05](assignments/hw05.html) 
+{% endcomment %}
+</td>

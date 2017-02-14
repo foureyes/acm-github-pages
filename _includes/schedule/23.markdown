@@ -1,0 +1,17 @@
+	<td markdown="block">
+{% comment %}
+* [Midterm #2 Exam Solutions](resources/handouts/midterm_2/midterm_2_solutions.pdf)
+{% endcomment %}
+
+* [Inheritance](slides/23/inheritance.html)
+</td>
+	<td markdown="block">
+* __Chapter 11__ - Inheritance and Polymorphism
+</td>
+	<td markdown="block">
+
+Due Wednesday, April 27th (originally 26th, but extended)
+
+* [Homework #09](assignments/hw09.html)
+
+</td>

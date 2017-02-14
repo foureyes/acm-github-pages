@@ -1,0 +1,501 @@
+---
+layout: homework
+title: "Assignment #2"
+---
+
+# Assignment #2 - Due Tuesday, Feb 9th at 11PM
+
+The assignments are in order of increasing difficulty. Part 5 (Odds and Evens) is more challenging than the others.
+
+* [Readings](#readings)
+* [About a Character](#part2)
+* [Draw a Card](#part3)
+* [Circle in Circle](#part4)
+* [Odds and Evens](#part5)
+
+<a name="readings"></a>
+
+## Part 1 - Review Readings
+
+The following programs are based on __Chapter #2__,  __Chapter #3__, and __Chapter #4__  in your book, _{{site.book}}_ (covers types, input, selection, random number generation, strings and chars).
+
+<a name="part2"></a>
+
+## (10 points) Part 2 - About a Character
+
+<pre><code data-trim contenteditable>                                      ._________________.
+                                      |.---------------.|
+                                      || Enter num:    ||
+                                      || >             ||
+                                      ||               ||
+                                      ||               ||
+                                      ||_______________||
+                                      | _______________ |
+                                      /.-.-.-.-_-.-.-.-.\
+                                     /.-.-.-.-| |-.-.-.-.\
+                                    /.-.-_.-.-| |.-.-.-.-.\
+                                   /____/ | | | | _________\ 
+                                   \____|       |\_________/
+                                        |        /
+                                         \     /` 
+                                          |   |   
+    
+</code></pre>
+
+### About a Character
+
+#### Overview
+
+Ask the user for a unicode code point. Print out a report based on the number that the user enters.
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>AboutACharacter.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+
+#### Features
+
+* (1 point) ask the user for a number:
+    <pre><code data-trim contenteditable>Enter a unicode code point, and I'll print out a report
+> 68
+    </code></pre>
+* print out a report based on the number entered
+    * (2 points) print out the character that it represents <code>68 represents the character: 'D'</code>
+    * (1 point) if the code point represents a number, print out <code>The characters is a number.</code>
+    * (1 point) if the code point represents a letter, print out <code>The characters is a letter.</code>
+    * (1 point)if the code point does not represent a letter or a number, print out <code>The characters is not alphanumeric.</code>
+    * (2 points each) print out the next and previous character
+    <pre><code data-trim contenteditable>Enter a unicode code point, and I'll print out a report
+> 68
+68 represents the character: 'D'
+The character is a letter.
+The next character is 'E'.
+The previous character is 'C'.
+</code></pre>
+
+<a name="part3"></a>
+
+## (10 points) Part 3 - Draw a Card!
+
+<pre><code data-trim contenteditable>                                      .------.
+                   .------.           |A .   |
+                   |A_  _ |    .------; / \  |
+                   |( \/ )|-----. _   |(_,_) |
+                   | \  / | /\  |( )  |  I  A|
+                   |  \/ A|/  \ |_x_) |------'
+                   `-----+'\  / | Y  A|
+                         |  \/ A|-----'    hjw
+                         `------'
+</code></pre>
+
+### Draw a Card!
+
+#### Overview
+
+The 52 card deck that you're familiar with is actually based off of a deck of [French Playing Cards](http://en.wikipedia.org/wiki/French_playing_cards) (which in turn, originated from Egypt!). A deck of cards consists of 4 different suits, each with 13 ranks, from Ace through King. (The German version had suits that were hearts, bells, acorns and leaves!?).
+
+Create a program that generates a single random card from this deck.
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>Cards.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+Generate a random card from a regular 52 card deck:
+
+* the face can be A, 2 - 10, J, Q, K
+* (4 points) the suit can be hearts, diamonds, clubs and spades
+* (4 points) use the following unicode symbols for the suit
+	* <code>\u2660</code> - ♠
+	* <code>\u2665</code> - ♥
+	* <code>\u2666</code> - ♦
+	* <code>\u2663</code> - ♣
+* (2 points) __do not use 52 else-if statements or a switch with 52 cases__ 
+
+Example output:
+
+#### Example Output:
+
+__(After one run)__
+
+<pre><code data-trim contenteditable>Shuffling the deck!
+Your card is... 6♦
+</code></pre>
+
+<a name="part4"></a>
+
+## (10 points) Part 4 - Circle in Circle
+
+<pre><code data-trim contenteditable>                                      
+
+                      ,,ggddY""""Ybbgg,,
+                 ,agd""'              `""bg,
+        _,,ddP"dPYbb,,_                   "Ybg,
+      ,dP"' ,dP"    `"Yb,                    "Yb,
+    ,d"   ,dP"          "b,                    "Yb,
+   d"    ,8"              "b                     "8,
+  d'    ,8'                `b                     `8,
+  8    ,8'                  8                      `8,
+  8    d'                   8                       `b
+  8    8                    8                        8
+  Y,   8                   ,P                        8
+   Ya  8                  aP                         8
+    "Ya8                aP"                          8
+      Yb,_          _,dP"                           ,P
+       `""YbbgggddP""'                            ,8'
+        `8,                                       ,8'
+         `8a                                     a8'
+          `Yba                                 adP'
+            "Yba                             adY"
+              `"Yba,                     ,adP"'
+                 `"Y8ba,             ,ad8P"'
+                      ``""YYbaaadPP""''
+
+</code></pre>
+
+### Problem 3.29 in 10th Edition of {{site.book}}: Circle inside or overlaps other circle 
+
+#### Overview
+
+(Geometry: two circles) Write a program that prompts the user to enter the center coordinates and radii of two circles and determines whether the second circle is inside the first or overlaps with the first, as shown in Figure 3.10. (Hint: circle2 is inside circle1 if the distance between the two centers <= \|r1 - r2\| and circle2 overlaps circle1 if the distance between the two centers <= r1 + r2. Test your program to cover all cases.)
+
+(see page 115 for diagrams)
+
+#### Setup
+
+* create a new project
+* add a class file called <code>CircleInCircle.java</code>
+
+#### Example Output
+
+<pre><code data-trim contenteditable>Enter circle1's center x-, y-coordinates, and radius: 0.5 5.1 13
+Enter circle2's center x-, y-coordinates, and radius: 1 1.7 4.5
+circle2 is inside circle1
+</code></pre>
+
+<pre><code data-trim contenteditable>Enter circle1's center x-, y-coordinates, and radius: 3.4 5.7 5.5
+Enter circle2's center x-, y-coordinates, and radius: 6.7 3.5 3
+circle2 overlaps circle1
+</code></pre>
+
+<pre><code data-trim contenteditable>circle1's center x-, y-coordinates, and radius: 3.4 5.5 1
+Enter circle2's center x-, y-coordinates, and radius: 5.5 7.2 1
+circle2 does not overlap circle1
+</code></pre>
+
+## (25 points) Part 2 - Odds and Evens
+
+<pre><code data-trim contenteditable>   ."";                   ."".    ."",
+   |  |                   |  |   /  /
+   |  |                   |  |  /  /
+   |  |                   |  | /  /
+   |  |--.--._            |  |/ .--._
+   |  | _|  | `|          |    _|  | `|
+   |  |` |  |  |          |  /` )  |  |
+   | /'--:--:__/          | /  /'--:__/
+   |/  /       |          |/  /       |
+   (  ' \      |          (  ' \      |
+    \    `.   /            \    `.   /
+     |       |              |       |
+     |       |              |       |
+</code></pre>
+
+### Create a Computer Version of Odds and Evens
+
+#### Overview
+
+Read [the article on the game, Odds and Evens](http://en.wikipedia.org/wiki/Odds_and_evens), and implement a version of it in Java using the material covered in the first four chapters of our book.
+
+In the game, the player can choose to play against a regular computer opponent or a cheating opponent. The player then chooses either odd or even. Then, both the player and their opponent (the computer), simultaneously reveal either one or two fingers. If the player chose odd, and the sum of their fingers and the opponent's fingers are odd, the player wins. The player also wins if the player chose even, and the sum is even. Note that the cheating computer will always put out a number that causes the player to lose.
+
+#### Setup
+
+* create a new project
+* add a class file called <code>OddsEvens.java</code>
+
+#### Features
+
+Implement the following features:
+
+* (1 point) display a banner that features the name of the game
+
+<pre><code data-trim contenteditable>Let's play a game of odds and evens!
+====================================
+</code></pre>
+
+* (1 point) allow the player to choose whether or not they'd like to play a cheating opponent
+    * accept h or c in either uppercase or lowercase
+    * note that the <code>Scanner</code> object allows you to get a string using <code>.next()</code>
+    * however, if you want a character, you'll have take in a string and use <code>.charAt(...)</code>
+    * either method is acceptable
+
+<pre><code data-trim contenteditable>What kind of player do you want the computer to be (h or c)?
+(H)onest Olivia
+(C)heating Chelsea
+</code></pre>
+
+
+* (1 point) allow the player to choose either odd or even by typing in 1 for odd or 2 for even
+
+<pre><code data-trim contenteditable>Choose odd or even (type the number corresponding to your choice)
+1 - Odd
+2 - Even
+</code></pre>
+
+* (3 points) if the player did not put in a 1 or a 2, __the game ends immediately__; display the message <code>Oops - you have to choose odd (1) or even (2)!</code>
+* (2 points) tell the player whether they chose odds or evens based on the number they entered: <code>You chose odds</code> or <code>You chose evens</code>
+* (1 point) display <code>1.. 2.. 3... Shoot!</code> and ask the player for the number of fingers they reveal - 1 or 2
+* (3 points) if the player did not enter 1 or 2, __the game ends immediately__; display the message <code>Oops - only 1 or 2 allowed!</code>
+* (4 points) if the computer player is the cheater, always play the number that will give the computer the win:
+    * <code>Cheating computer cheats.</code>
+    * <code>The computer puts out (winning number)</code>
+* (3 points) otherwise, randomly choose 1 or 2 for the computer... for example: <code>The computer puts out 2</code>
+* (1 point) print out the total based on the player's input and the computer's random choice... for example, if the player chose 1, and the computer chose 2: <code>The total is 3</code>
+* (4 points) determine who won based on the total and whether or not the player chose odds or evens (see game rules above)... and display either <code>You won!</code> or <code>You lost!</code>
+* __YOU CAN ASSUME THAT THE PLAYER WILL ALWAYS ENTER VALID INPUT WHEN ASKED FOR AN NUMBER__
+
+#### Example Output:
+
+__(the cheating computer opponent always wins!)__
+
+<pre><code data-trim contenteditable>Let's play a game of odds and evens!
+====================================
+
+What kind of player do you want the computer to be (h or c)?
+(H)onest Olivia
+(C)heating Chelsea
+>c
+Choose odd or even (type the number corresponding to your choice)
+1 - Odd
+2 - Even
+>2
+You chose evens
+1.. 2.. 3... Shoot! (How many fingers - 1 or 2)
+>2
+Cheating computer cheats.
+The computer puts out 1
+The total is 3
+You lost!
+</code></pre>
+
+__(player chooses odd, then reveals one finger; player wins)__
+
+<pre><code data-trim contenteditable>(previous output omitted)
+Choose odd or even (type the number corresponding to your choice)
+1 - Odd
+2 - Even
+> 1
+You chose odds
+1.. 2.. 3... Shoot! (How many fingers - 1 or 2)
+> 1
+The computer puts out 2
+The total is 3
+You won!
+</code></pre>
+
+__(player does not enter 1 or 2 for odd or even)__
+
+<pre><code data-trim contenteditable>(previous output omitted)
+Choose odd or even (type the number corresponding to your choice)
+1 - Odd
+2 - Even
+> 3
+Oops - you have to choose odd (1) or even (2)!
+</code></pre>
+
+__(player does not hold out 1 or 2 fingers)__
+<pre><code data-trim contenteditable>(previous output omitted) 
+1.. 2.. 3... Shoot! (How many fingers - 1 or 2)
+3
+Oops - only 1 or 2 allowed!
+</code></pre>
+<a name="part3"></a>
+
+
+
+
+{% comment %}
+## (10 points) Part 3 - Point in a Rectangle?
+
+### Problem 3.23 in 10th Edition of {{site.book}}: Point in a Rectangle
+
+#### Overview
+(Geometry: point in a rectangle?) Write a program that prompts the user to enter a point (x, y) and checks whether the point is within the rectangle centered at (0, 0) with width 10 and height 5. For example, (2, 2) is inside the rectangle and (6, 4) is outside the rectangle, as shown in Figure 3.7b (see page 113). (Hint: A point is in the rectangle if its horizontal distance to (0, 0) is less than or equal to 10 / 2 and its vertical distance to (0, 0) is less than or equal to 5.0 / 2 Test your program to cover all cases.)
+
+#### Setup
+
+* create a new project
+* add a class file called <code>PointInRectangle.java</code>
+
+
+#### Example Output
+
+__(in rectangle)__
+
+<pre><code data-trim contenteditable>
+Enter a point with two coordinates: 2 2
+Point (2.0, 2.0) is in the rectangle
+</code></pre>
+
+__(outside of rectangle)__
+
+<pre><code data-trim contenteditable>
+Enter a point with two coordinates: 6 4
+Point (6.0, 4.0) is not in the rectangle
+</code></pre>
+
+## (10 points) Part 4 - What's Your Sign?
+
+<pre><code data-trim contenteditable>               =*===
+             $$- - $$$
+             $ <    D$$
+             $ -   $$$
+       ,     $$$$  |
+      ///; ,---' _ |----.
+       \ )(           /  )
+       | \/ \.   '  _.|  \              $
+       |  \ /(   /    /\_ \          $$$$$
+        \ /  (       / /  )         $$$ $$$
+             (  ,   /_/ ,`_,-----.,$$  $$$
+             |   <----|  \---##     \   $$
+             /         \\\           |    $
+            '   '                    |
+            |                 \      /
+            /  \_|    /______,/     /
+           /   / |   /    |   |    /
+          (   /--|  /.     \  (\  (_
+           `----,( ( _\     \ / / ,/
+                 | /        /,_/,/
+                _|/        / / (
+               / (        ^-/, |
+              /, |          ^-    b'ger
+              ^-
+</code></pre>
+
+### Determine the Zodiac Sign for a Month and Date
+
+#### Overview
+
+Your birthday determines what your astrological sign is. [Check out the wikipedia article on the Zodiac](http://en.wikipedia.org/wiki/Zodiac#Table_of_dates) for more details.
+
+Write a program that asks a user for a month in the winter based on a number (12 for December, 1 for January and 2 for February) and a date (1 through 31 would be adequate for this assignment). The program will determine what your astrological sign is based on the following table (sourced from the article above, using the International Astronomical Union boundaries):
+
+* __Ophiuchus__: 30 November - 17 December
+* __Sagittarius__: 18 December - 18 January
+* __Capricorn__: 19 January - 15 February
+* __Aquarius__: 16 February - 11 March
+
+#### Setup
+
+* create a new project
+* add a class file called <code>ZodiacSigns.java</code>
+
+
+#### Features
+
+* (1 point) ask the user for a winter month based on number (12 for December, 1 for January and 2 for February)
+* (1 point) then... ask the user for a date (1 through 31)
+* (1 point) if the month entered is not 12, 1 or 2, output an error message: <code>That month isn't in the winter!
+</code>
+* (1 point) if the day entered is not 1 - 31 inclusive, output an error message: <code>Not a valid date</code>
+* (3 points) __use a switch__ statement in your code
+* (3 points) based on the month and date, output the corresponding zodiac sign 
+
+#### Example Output
+
+__(December 3rd should give Ophiuchus)__
+
+<pre><code data-trim contenteditable>
+Pick a winter month (12 for Dec, 1 for Jan, 2 for Feb):
+12
+Pick a day (1 - 31):
+3
+Ophiuchus
+</code></pre>
+
+__(December 29th should give Sagittarius)__
+
+<pre><code data-trim contenteditable>
+Pick a winter month (12 for Dec, 1 for Jan, 2 for Feb):
+12
+Pick a day (1 - 31):
+30
+Sagittarius
+</code></pre>
+
+__(Month isn't December, January or February)__
+
+<pre><code data-trim contenteditable>
+Pick a winter month (12 for Dec, 1 for Jan, 2 for Feb):
+14
+Pick a day (1 - 31):
+1
+That month isn't in the winter!
+</code></pre>
+
+__(Date isn't between 1 and 31)__
+
+<pre><code data-trim contenteditable>
+Pick a winter month (12 for Dec, 1 for Jan, 2 for Feb):
+2
+Pick a day (1 - 31):
+0
+Not a valid date!
+</code></pre>
+
+## (10 points) Part 5 - Lottery
+
+### Problem 3.15 in 10th Edition of {{site.book}}: Lottery
+
+#### Overview
+(Game: lottery) Revise Listing 3.8 (page 98), Lottery.java to generate a lottery of a three digit number. The program prompts the user to enter a three-digit number and determines whether the user wins according to the following rules:
+
+1. If the user input matches the lottery number in the exact order, the award is $10,000
+2. If all digits in the user input match all digits in the lottery number, the award is $3,000
+3. If one digit in the user input matches a digit in the lottery number, the award is $1,000
+
+#### Setup
+
+* create a new project
+* add a class file called <code>Lottery.java</code>
+
+
+#### Example Output
+
+__(wins - condition 1)__
+
+<pre><code data-trim contenteditable>
+Enter your lottery pick (three digits): 243
+The lottery number is 243
+You win $10,000
+</code></pre>
+
+__(wins - condition 3)__
+
+<pre><code data-trim contenteditable>
+Enter your lottery pick (three digits): 499
+The lottery number is 243
+You win $1,000
+</code></pre>
+
+{% endcomment %}
+
+# Submission Process
+
+* Submit assignment via NYU Classes
+* Submit each <code>.java</code> file as a separate attachment
+	* only submit .java files (do not submit .class files or any other files that are created in Eclipse)
+	* you can find your .java files in the directory that you specified as your workspace... and within the project folder contained in the workspace directory
+
+
+# Grading Criteria
+
+* no credit / partial credit: file does not compile
+* -2 points: files and classes are not named according to instructions
+* -2 points: inconsistent style using curly braces, inconsistent use of spaces and indentation, lack of comments
+* -2 points: no comments on top of file (name and course number)
+* see individual projects for points per feature
+

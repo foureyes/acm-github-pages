@@ -1,0 +1,16 @@
+	<td markdown="block">
+* [About Class #2](slides/02/meta.html)
+* [Review - Writing Your First Java Program](slides/02/review-first-java.html) (we did this in the previous class)
+* [Classes, Objects, and Types](slides/02/classes-objects.html) (we did this in the previous class)
+* [Primitive Numeric Types and Operations](slides/02/numeric-types.html) (we started this)
+* [Variables, Constants](slides/02/variables-constants.html)
+* [Input and Output](slides/02/input-output.html)
+</td>
+	<td markdown="block">
+* __Chapter 2__ - Elementary Programming
+</td>
+	<td markdown="block">
+{% comment %}
+* Read Chapters 2 and 3
+{% endcomment %}
+</td>

@@ -1,0 +1,23 @@
+	<td markdown="block">
+* [Course Intro](slides/01/intro.html)
+* [Introduction to Computers, Programs, and Java](slides/01/first-program.html)
+
+<!--
+* [First Java Program](slides/01/first-java.html)
+-->
+</td>
+	<td markdown="block">
+* __Chapter 1__ - Introduction to Computers, Programs, and Java
+</td>
+	<td markdown="block">
+
+Assignment Due Feb 2nd
+
+* [Assignment #1](assignments/hw01.html)
+
+Online Quizzes Due Feb 4th
+
+* Read Chapters 1 through 5 in {{ site.book }}
+* Quiz #1 and Quiz #2 on NYU Classes (under Tests and Quizzes) 
+
+</td>

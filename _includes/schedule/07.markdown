@@ -1,0 +1,21 @@
+	<td markdown="block">
+{% comment %}
+* [About class #8](slides/08/meta.html)
+{% endcomment %}
+* [Methods](slides/07/methods.html)
+
+{% comment %}
+* [Processing](slides/08/processing.html)
+{% endcomment %}
+</td>
+	<td markdown="block">
+* __Chapter 5__ - Loops (Nested Loops)
+* __Chapter 6__ - Methods
+<!--* [Debugging](lynda.com?)-->
+</td>
+	<td markdown="block">
+Assignment Due Feb 23rd
+
+* [Assignment #4](assignments/hw04.html)
+
+</td>

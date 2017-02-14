@@ -1,0 +1,56 @@
+	<td markdown="block">
+{% comment %}
+* [About Class #26](slides/26/meta.html)
+{% endcomment %}
+
+Slides
+
+* [Exception Handling](slides/26/exceptions.html)
+* ArrayList
+* Constructors
+* [File I/O](slides/26/fileio.html)
+* _Commandline_ Arguments
+
+Midterm Solutions
+
+* [Midterm solutions v1](resources/handouts/midterm2/midterm_2_v1_ramen_solutions.pdf)
+* [Midterm solutions v2](resources/handouts/midterm2/midterm_2_v2_coffee_solutions.pdf) 
+
+Code Samples
+
+* [CheckedException.java](resources/code/class26/CheckedException.java)
+* [Constructors.java](resources/code/class26/Constructors.java)
+* [FileDemo.java](resources/code/class26/FileDemo.java)
+* [HandlingNullPointerException.java](resources/code/class26/HandlingNullPointerException.java)
+* [PolymorphismDynamicBinding.java](resources/code/class26/PolymorphismDynamicBinding.java)
+* [TryCatchPizza.java](resources/code/class26/TryCatchPizza.java)
+* [TryCatchThrowWithStack.java](resources/code/class26/TryCatchThrowWithStack.java)
+
+{% comment %}
+* [](slides//.html)
+	* sortable
+	(anything that implements sortable)
+	* driver?
+	   * get console input
+	   * from web request
+	* vehicle
+		* move?
+	* implements noisey? has a method called make noise and prints out  a lot of stuff
+	   
+* [](slides//.html)
+{% endcomment %}
+</td>
+	<td markdown="block">
+* __Chapter 12__ - Exceptions and File I/O
+
+</td>
+	<td markdown="block">
+
+Due Tuesday, May 5th
+
+* [Homework #10](assignments/hw10.html)
+
+{% comment %}
+Assignment/Readings
+{% endcomment %}
+</td>

@@ -1,0 +1,375 @@
+---
+layout: homework
+title: "Assignment #6"
+---
+# Assignment #6 - Due Thursday, March 24th, at 11PM
+
+* [Readings](#readings)
+* [Four in a Row](#part2)
+* [Connect Four Game](#part3)
+* [Car](#part4)
+
+<a name="readings"></a>
+
+## Part 1 - Readings
+
+From your book, _{{site.book}}_ :
+
+* __Chapter #8__  on multi-dimensional Arrays
+* Processing Readings
+	* __Please read through this source code first__: [ProcessingDemo.java](../resources/code/ProcessingDemo.java)
+		* this will demo all of the methods and variables outlined below
+		* it has comments that explains how everything is used
+	* [Using Processing with Eclipse](https://processing.org/tutorials/eclipse/)
+	* [Using Setup and Draw](https://processing.org/examples/setupdraw.html)
+	* [Drawing Simple Shapes](https://processing.org/examples/shapeprimitives.html)
+	* [size](https://processing.org/reference/size_.html)
+	* [noStroke](https://processing.org/reference/noStroke_.html)
+	* [background](https://processing.org/reference/background_.html)
+	* [fill](https://processing.org/reference/fill_.html)
+	* [rect](https://processing.org/reference/rect_.html)
+	* [triangle](https://processing.org/reference/triangle_.html)
+	* [ellipse](https://processing.org/reference/ellipse_.html)
+	* [width](https://processing.org/reference/width.html)
+	* [height](https://processing.org/reference/height.html)
+	* [mousePressed](https://processing.org/reference/mousePressed.html)
+	* [mouseX](https://processing.org/reference/mouseX.html)
+	* [mouseY](https://processing.org/reference/mouseY.html)
+
+
+
+<a name="part2"></a>
+
+## (20 points) Part 1 - Four in a Row
+
+<pre><code data-trim contenteditable>      ___         ___           ___           ___
+     /  /\       /  /\         /__/\         /  /\    
+    /  /:/_     /  /::\        \  \:\       /  /::\   
+   /  /:/ /\   /  /:/\:\        \  \:\     /  /:/\:\  
+  /  /:/ /:/  /  /:/  \:\   ___  \  \:\   /  /:/~/:/  
+ /__/:/ /:/  /__/:/ \__\:\ /__/\  \__\:\ /__/:/ /:/___
+ \  \:\/:/   \  \:\ /  /:/ \  \:\ /  /:/ \  \:\/:::::/
+  \  \::/     \  \:\  /:/   \  \:\  /:/   \  \::/~~~~ 
+   \  \:\      \  \:\/:/     \  \:\/:/     \  \:\     
+    \  \:\      \  \::/       \  \::/       \  \:\    
+     \__\/       \__\/         \__\/         \__\/    
+</code></pre>
+{%comment%}_{%endcomment%}
+
+### Four in a Row
+
+#### Overview
+
+Write a method called <code>checkFour</code>... that determines whether there are four consecutive elements in a row, in a column or diagonally, in a matrix of integers.
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>FourInARow.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+Implement the following:
+
+* A method: <code>public static int checkFour(int[][] board, int piece)</code>
+	* <code>board</code> is a two-dimensional Array of integers
+	* <code>piece</code> an integer to search for
+	* returns the integer if it occurs 4 times consecutively in a row, column or diagonally
+	* returns -1 if the integer specified is not found 4 times consecutively
+* write java doc documentation for the method above
+* feel free to write any helper functions as necessary
+* place the following code in your <code>main</code> method to test:
+
+<pre><code data-trim contenteditable>
+int[][] noConsectiveFour = {
+  // 0 1 2 3 4 5 6
+	{0,0,0,0,0,0,0}, // 0
+	{0,0,0,0,0,0,0}, // 1
+	{0,0,0,0,0,0,0}, // 2 
+	{0,0,0,1,0,0,0}, // 3
+	{0,0,1,2,1,0,0}, // 4
+	{0,1,2,2,2,0,0}  // 5
+};
+int[][] fourInCol = {
+  // 0 1 2 3 4 5 6
+	{0,0,0,0,0,0,0}, // 0
+	{0,0,0,0,0,0,0}, // 1
+	{0,1,0,0,0,0,0}, // 2 
+	{0,1,0,2,0,0,0}, // 3
+	{0,1,2,2,0,0,0}, // 4
+	{0,1,1,2,0,2,0}  // 5
+};
+int[][] fourInRow = {
+  // 0 1 2 3 4 5 6
+	{0,0,0,0,0,0,0}, // 0
+	{0,0,0,0,0,0,0}, // 1
+	{0,0,0,0,1,0,0}, // 2 
+	{0,0,0,2,2,0,0}, // 3
+	{0,0,1,1,1,1,0}, // 4
+	{0,0,2,2,1,2,0}  // 5
+};
+int[][] fourInDiag1 = {
+  // 0 1 2 3 4 5 6
+	{0,0,0,0,0,0,0}, // 0
+	{0,0,0,0,0,0,0}, // 1
+	{0,0,0,0,1,0,0}, // 2 
+	{0,0,0,1,2,0,0}, // 3
+	{0,0,1,2,1,0,0}, // 4
+	{0,1,2,2,1,2,0}  // 5
+};
+
+int[][] fourInDiag2 = {
+  // 0 1 2 3 4 5 6
+	{0,0,0,0,0,0,0}, // 0
+	{0,0,0,0,0,0,0}, // 1
+	{0,0,1,0,2,0,0}, // 2 
+	{0,0,1,1,2,0,0}, // 3
+	{0,2,1,2,1,0,0}, // 4
+	{0,1,2,2,2,1,0}  // 5
+};		
+
+int[][] fourInDiag3 = {
+  // 0 1 2 3 4 5 6
+	{0,0,0,0,0,0,0}, // 0
+	{0,0,0,1,0,0,0}, // 1
+	{0,0,1,0,0,0,0}, // 2 
+	{0,1,0,0,0,0,0}, // 3
+	{1,0,0,0,0,0,0}, // 4
+	{0,0,0,0,0,0,0}  // 5
+};
+
+int[][] fourInDiag4 = {
+  // 0 1 2 3 4 5 6
+	{0,0,1,0,0,0,0}, // 0
+	{0,0,0,1,0,0,0}, // 1
+	{0,0,0,0,1,0,0}, // 2 
+	{0,0,0,0,0,1,0}, // 3
+	{0,0,0,0,0,0,0}, // 4
+	{0,0,0,0,0,0,0}  // 5
+};
+
+System.out.println(checkFour(noConsectiveFour, 1));
+System.out.println(checkFour(fourInCol, 1));
+System.out.println(checkFour(fourInRow, 1));
+System.out.println(checkFour(fourInDiag1, 1));
+System.out.println(checkFour(fourInDiag2, 1));
+System.out.println(checkFour(fourInDiag3, 1));
+System.out.println(checkFour(fourInDiag4, 1));
+</code></pre>
+
+
+#### Example Output:
+
+The output should give back -1 for the first board, and 1 for the remainder of the test cases:
+
+<pre><code data-trim contenteditable>Enter 5 numbers: 
+-1
+1
+1
+1
+1
+1
+1
+</code></pre>
+
+<a name="part3"></a>
+
+## (15 points) Part 3 - Connect Four Game!
+
+### (15 additional points extra credit - 30 total - for implementing both the graphical version and the text version)
+
+<pre><code data-trim contenteditable>    _..----------.._       _..----------.._       _..----------.._       _..----------.._   
+ .-~                ~-. .-~                ~-. .-~                ~-. .-~                ~-.
+ |.                  .| |.                  .| |.                  .| |.                  .|
+ |"-..____________..-"| |"-..____________..-"| |"-..____________..-"| |"-..____________..-"|
+ |                    | |                    | |                    | |                    |
+  "-..____________..-"   "-..____________..-"   "-..____________..-"   "-..____________..-" 
+                       
+</code></pre>
+{%comment%}_{%endcomment%}
+
+## Connect Four Game
+
+#### Overview
+
+Use the method(s) you created in part 1, Four in a Row, to create a Connect Four Game. See the [wikipedia article on Connect Four](http://en.wikipedia.org/wiki/Connect_Four).
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>ConnectFourText.java</code> (and <code>ConnectFourProcessing</code> if you're doing extra credit)
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+#### Features
+
+You can implement this game as:
+
+* a text-only game (15 points) 
+* and as a graphical game using processing (an additional 15 points)
+
+
+__Text Only__
+
+![text only version / console](../resources/img/connect-four-console.gif)
+
+* create a board with 6 rows and 7 columns as shown above (the board can be represented by integers, and displayed as single letters so that you can use the methods you defined in part 1)
+* prompt the user to select a column, 0 through 6
+* an "X" is placed in the column specified by the user
+	* the "X" is placed in the bottom-most row that is not yet occupied by either an "X" or an "O"
+* after the player moves: 
+	* the board is checked for four consecutive pieces in a row, column or diagonal (using the method or methods you copied over from part 1)
+	* if there are consecutive pieces for the player the game ends immediately
+* the computer takes a turn by placing a piece on the board
+	* the computer's pieces are represented by an "O"
+	* you can use any strategy for the computer
+	* in the example above, the computer makes a random move
+	* the board is checked for a win by the computer
+	* if there are consecutive pieces for the computer, the game ends immediately
+
+__Graphical (extra credit)__
+
+![processing](../resources/img/connect-four-processing.gif)
+
+* to submit the extra credit, implement a graphical version of connect four using the instructions below
+* __specify which additional features you'll implement__ (see list under part 2)
+* the graphical version should follow the same rules as the text version
+* (10 points) __Part 1__ - implement these additional requirements
+	* the player's pieces are yellow
+	* the computer's pieces are blue
+	* if the mouse hovers over a column and it is clicked, it is a move for that player
+* (5 points) __Part 2__ implement any of these requirements (__specify which one in your assignment submission__)
+	* column highlight on mouse hover
+	* fade in for the pieces that are just played
+	* color fade in for a win
+
+#### Example Output
+
+Additional output for the text-only version:
+
+<pre><code data-trim contenteditable>
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|---------------------------|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+Please enter a column (0 - 6):
+> 0
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+| X |   |   | O |   |   |   |
+|---------------------------|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+Please enter a column (0 - 6):
+> 2
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   | O |   |   |   |   |
+| X |   | X | O |   |   |   |
+|---------------------------|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+
+.
+.
+.
+.
+.
+
+|   |   |   |   |   |   |   |
+|   |   | O |   |   |   |   |
+|   |   | O | X |   |   |   |
+|   |   | X | O |   |   |   |
+| X |   | O | X |   | X |   |
+| X |   | X | O | O | O |   |
+|---------------------------|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+Please enter a column (0 - 6):
+> 6
+|   |   |   |   |   |   |   |
+|   |   | O |   |   |   |   |
+|   |   | O | X |   |   |   |
+|   |   | X | O |   |   |   |
+| X |   | O | X |   | X |   |
+| X | O | X | O | O | O | X |
+|---------------------------|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+Please enter a column (0 - 6):
+> 1
+|   |   |   |   |   |   |   |
+|   |   | O |   |   |   |   |
+|   |   | O | X |   |   |   |
+|   |   | X | O |   |   |   |
+| X | X | O | X |   | X |   |
+| X | O | X | O | O | O | X |
+|---------------------------|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+PLAYER WINS, 4 in a row!!!
+
+</code></pre>
+
+
+## (15 points) Part 4 - Car Animation
+
+<pre><code data-trim contenteditable>                         _.--~~~~~~~---------------._                        
+                          ,=-,.--#####----..--------.   `.                      
+                        ,'  ,/ _/_ ####   :!         `   ``.                    
+                       ,   ,/ [.[.]-=##   :!     /    `   `.`.                  
+                      ,   ,/   /_    )#   :!   // //   `    `.`.                
+                     ,   /7    |_/   #    :!    // /    `     `.`.  ___,-       
+                    .   ; |     \___/     :!             ;      `~`=    /       
+              ___,--`--(  ;_____/__  \____:!__________,-'           `. /        
+        __,--'         '~~         \  \ __`               ______      `.        
+    _,-'                      _ ____\  \-o .             /ZZZZZ/        `.      
+  ,'              turbo`     {_|_______)                                  `.    
+ .------ ------ ---- ---, --  --- - --- -- .--  - - ---  -- -   -- --- - --!    
+ !__'     ,-~~~-.                                     ,-~~~-.             /|    
+ | ,     ' ,mMm. `      .                  .         ' ,mMm. `           /-!    
+ ;-_____'.d-' `-b.`_____ __________________ ________'.d-' `-b.`_________/FS;_   
+:      ;.d'\ _ /`b.\    .                  '       ;.d'\ _ /`b.\             :  
+!====== d;-.' `.-:b ==== ================= ======== d;-.' `.-:b =============;  
+`-.   : H  |   |  D :   `                 '       : H  |   |  D :     _ __,-'   
+   `-.! C:-`._,'-;P ;_____________________________! C:-`._,'-;P ;__________7    
+      ""`G./   \,S'"""""""""""""""""""""""""""""""""`G./   \,S'""""""""""""     
+         `S-. ,-D'                                   `Q-. ,-S' 
+</code></pre>
+
+### Car Animation
+ 
+#### Overview
+
+Create an animation of a car.
+
+#### Setup
+
+* Create a class (<code>.java</code>) file called <code>CarAnimation.java</code>
+* (This can be within a project that contains the other parts of this homework or it can be in separate project on its own)
+
+### Features
+
+See example image below. The exact colors and shapes do not have to match; you can be as creative (or as no-frills) as you like.
+
+Use the [example file linked to in the readings](../resources/code/ProcessingDemo.java) to familiarize yourself with methods and variables for drawing and animating shapes.
+
+Implement the following:
+
+* draw a car at the center of the screen
+* draw a road
+* draw sky
+* draw a mountain in the background
+	* the mountain should move / be animated
+* draw two trees in the background
+	* the mountains should move / be animated
+* draw lines on the road
+	* the lines should move / be animated
+
+
+#### Example Output
+
+![car](../resources/img/car_animation2.gif)
+  

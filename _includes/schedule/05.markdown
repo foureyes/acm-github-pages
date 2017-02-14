@@ -1,0 +1,23 @@
+	<td markdown="block">
+    {% comment %}
+* [About Class #5](slides/05/meta.html)
+    {% endcomment %}
+* About Class #5
+* [Strings Continued](slides/05/strings-continued.html)
+* [Formatting](slides/05/printf.html)
+* [While and for Loops](slides/05/loops.html)
+
+{% comment %}
+* [Math](slides/06/math.html)
+* [REPL, Floats](slides/06/repl-floats.html)
+{% endcomment %}
+
+</td>
+	<td markdown="block">
+* __Chapter 5__ - Loops
+</td>
+	<td markdown="block">
+Assignment Due Feb 16th
+
+* [Assignment #3](assignments/hw03.html)
+</td>

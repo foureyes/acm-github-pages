@@ -1,0 +1,33 @@
+	<td markdown="block">
+
+{% comment %}
+* [About Class #14](slides/14/meta.html)
+* [Midterm Results](slides/14/midterm.html)
+* [Multi-Dimensional Arrays Exercises](slides/14/nested-arrays-exercises.html)
+{% endcomment %}
+
+* [Processing Installation](assignments/processing.html)
+* [Processing - Shapes and Images](slides/15/processing-shapes.html)
+
+{% comment %}
+* [Processing](slides/14/processing.html)
+{% endcomment %}
+
+</td>
+	<td markdown="block">
+
+   {% comment %}
+* [Midterm #1 Solutions](resources/handouts/midterm_1/midterm_1_solutions.pdf)
+   {% endcomment %}
+</td>
+	<td markdown="block">
+
+Assignment Due March 24th
+
+* [Homework #6](assignments/hw06.html)
+
+Resources
+
+* [download core.jar](resources/jars/core.jar)
+
+</td>
