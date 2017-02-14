@@ -6,8 +6,8 @@ tagline: "This time, it's personal!"
 baseurl: ""
 resource_prefix: "resources/"
 github_username: jversoza
-slides_lib: "../../resources/lib"
-slides_img_prefix: "../../resources/img"
+slides_lib: "../resources/lib"
+slides_img_prefix: "../resources/img"
 
 markdown: kramdown
 kramdown:
