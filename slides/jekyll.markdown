@@ -64,7 +64,7 @@ __WAIT WAT? What's going? What's this Jekyll thing about?__
 __So... what's really happening on GitHub Pages is:__ &rarr;
 
 1. {:.fragment} once you save a file / commit and push...
-2. {:.fragment} that file is being run through a __static site generator__ (called Jekyll(
+2. {:.fragment} that file is being run through a __static site generator__ (called Jekyll)
 3. {:.fragment} this software goes through your files and does things like:
     * {:.fragment} __translate markdown to html__ (yeah, I bet you were wondering how that worked! no? ok nm)
     * {:.fragment} __add headers, footers and other includes__
@@ -74,6 +74,7 @@ __This is all done automatically on GitHub's servers__ &rarr;
 {:.fragment}
 
 So... to be able to do this locally, you'll have to install Jekyll, and build your site with Jekyll
+{:.fragment}
 </section>
 
 
@@ -172,11 +173,14 @@ __Er - what does Jekyll exactly do?__ &rarr;
 
 __A jekyll project comes with the following directories and files:__ &rarr;
 
+([see the docs](https://jekyllrb.com/docs/structure/))
+
 * {:.fragment} __`_layouts` directory__ - where you put your "surrounding" html layout
 * {:.fragment} __`_includes` directory__ - where your common fragments of html live
 * {:.fragment} __`_config.yml`__
 * {:.fragment} __`_site` directory__ - the directory where your generated site is outputted
-* again, prefix with underscore means it doesn't get dropped into the \_site folder
+* {:.fragment} again, prefix with underscore means it doesn't get dropped into the \_site folder
+
 </section>
 
 <section markdown="block">
@@ -240,7 +244,7 @@ __You should have this before we go on:__ &rarr;
 1. [git](https://git-scm.com/book/en/v1/Getting-Started-Installing-Git) (er, I guess a gui client will work, but we'll go through commandline operations in this workshop)
 2. [ruby 2.x.x](https://www.ruby-lang.org/en/documentation/installation/)
 3. (maybe) bundler (you don't _really_ need to do this, but it's _best practice_ in the Ruby community)
-4.
+4. `gem install jekyll` or use this guide to [install it](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler)
 
 <br>
 Follow the instructions in [this article on installing requirements](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#requirements): ruby, git and bundler
@@ -248,49 +252,23 @@ Follow the instructions in [this article on installing requirements](https://hel
 
 </section>
 
-<section markdown="block">
-## Installing Jekyll
-
-__Use this guide to [install jekyll](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler)__ &rarr;
-
-1. create a GemFile with:
-    <pre><code data-trim contenteditable>
-source 'https://rubygems.org'
-gem 'github-pages', group: :jekyll_plugins
-2. `bundle install`
-
-You can also optionally initialize a jekyll project by:
-
-`jekyll _3.3.0_ new NEW-JEKYLL-SITE-REPOSITORY-NAME`
-
-
-</section>
 
 <section markdown="block">
 ## Demo: From Scratch with the Commandline
 
+__Maybe we'll try making an adventure time fan site??? Sure. Y Not.__ &rarr;
+
+(if this doesn't work, we can mess with the source of this site)
+
 1. \_layouts folder
 2. &#123;&#123; content &#125;&#125; tag
 3. create a __.markdown__file
-4. yaml front matter
+4. [yaml front matter](https://jekyllrb.com/docs/frontmatter/)
 5. markdown!
-5. status, add, commit
-6. git push -u origin gh-pages
+6. [break out common elements into includes](https://jekyllrb.com/docs/includes/)
+7. move items into your configuration file
+8. [conditionals](http://stackoverflow.com/questions/23923416/how-do-i-create-an-if-else-statement-if-there-are-no-jekyll-posts-in-a-category)
 </section>
-
-
-<section markdown="block">
-##  Some Things To Do...
-
-1. create a simple page with markdown
-2. create multiple pages
-3. break out common elements into a layout
-4. break out common elements into "partials"
-5. move items into your configuration file
-
-</section>
-
-
 
 
 
